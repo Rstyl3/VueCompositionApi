@@ -1,6 +1,7 @@
 <template>
   <div class="search-brew">
     <h2>Brew Search</h2>
+    <p>Search beer!</p>
     <section>
       <form @submit.prevent="submitted">
         <input type="text" v-model="val" />
