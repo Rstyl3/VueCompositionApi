@@ -100,3 +100,11 @@ Source: https://github.com/vuejs/composition-api
 Docs and explanation on why composition is better: https://vue-composition-api-rfc.netlify.com/#summary
 
 API Reference: https://vue-composition-api-rfc.netlify.com/api.html#setup
+
+### Explanation in details:
+
+Project is based on: 
+
+Capacity component: https://www.vuemastery.com/blog/vue-3-start-using-it-today/?utm_campaign=Vue.js%20News&utm_medium=email&utm_source=Revue%20newsletter
+
+Brew component: https://www.youtube.com/watch?v=zPViRHZfKv4
