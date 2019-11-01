@@ -1,19 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Capacity :value="initial" @getvalue="hdlValue" />
+    <SearchBrews style="height: 500px" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchBrews from './components/SearchBrews.vue';
+import Capacity from './components/Capacity.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    SearchBrews,
+    Capacity,
+  },
+  data() {
+    return {
+      initial: 3,
+    };
+  },
+  methods:{
+    hdlValue(v){
+      console.log("Got emitted value", v)
+      this.initial = v
+    }
   }
-}
+};
 </script>
 
 <style>
@@ -24,5 +37,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>
