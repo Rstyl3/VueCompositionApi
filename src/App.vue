@@ -1,19 +1,25 @@
 <template>
   <div id="app">
-    <Capacity :value="initial" @getvalue="hdlValue" />
-    <SearchBrews style="height: 500px" />
+      <MousePosition />
+    <div class="component-wrapper">
+      <Capacity :value="initial" @getvalue="hdlValue" />
+      <SearchBrews style="height: 500px" />
+    </div>
+
   </div>
 </template>
 
 <script>
 import SearchBrews from './components/SearchBrews.vue';
 import Capacity from './components/Capacity.vue';
+import MousePosition from './components/MousePosition.vue';
 
 export default {
   name: 'app',
   components: {
     SearchBrews,
     Capacity,
+    MousePosition
   },
   data() {
     return {
@@ -37,6 +43,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.component-wrapper{
+  padding-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

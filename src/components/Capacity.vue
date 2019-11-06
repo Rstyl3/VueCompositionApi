@@ -1,28 +1,33 @@
 <template>
   <div class="capacity-wrapper">
     <h2>Emitting event</h2>
-    <p>Capacity: {{ value }}</p>
+    <p>Capacity: {{ state.capacity }}</p>
     <button @click="increaseCapacity()">Increase Capacity</button>
     <button @click="reset()">Reset</button>
   </div>
 </template>
 
 <script>
-import { ref } from '@vue/composition-api';
+import { ref,reactive, watch, toRefs } from '@vue/composition-api';
 
 export default {
   props:['value'],
   setup(props, context) { //context is used instead of this.$
-    const capacity = ref(props.value);
-
+    const state = reactive({
+      capacity : props.value
+    })
+    watch(() => { //to update state data from props
+       state.capacity = props.value
+    })
     function increaseCapacity() {
-      capacity.value++;
-      context.emit('getvalue', capacity.value)
+      state.capacity++;
+      console.log(state.capacity)
+      context.emit('getvalue', state.capacity)
     }
     function reset(){
       context.emit('getvalue', 0)
     }
-    return { capacity, increaseCapacity, reset };
+    return { state , increaseCapacity, reset };
   },
 };
 
